@@ -1,16 +1,24 @@
 package com.example.simulacioncrud.views
 
-import com.example.simulacioncrud.logic.Controller
-import com.example.simulacioncrud.logic.interfaces.OperationsInterface
+class Dialog {
+    private var onAdd: ((Int, String, String, String) -> Unit)? = null
+    private var onDelete: ((Int) -> Unit)? = null
+    private var onUpdate: ((Int, String, String, String) -> Unit)? = null
 
-class Dialog(var controller: Controller) {
-
-    private var listener: OperationsInterface? = null
-
-    fun setListener ( _listener : OperationsInterface ){
-        listener = _listener
+    fun setOnAdd(listener: (Int, String, String, String) -> Unit) {
+        onAdd = listener
     }
 
+    fun setOnDelete(listener: (Int) -> Unit) {
+        onDelete = listener
+    }
 
+    fun setOnUpdate(listener: (Int, String, String, String) -> Unit) {
+        onUpdate = listener
+    }
 
+    fun show() {
+        // Simular la captura de datos
+        // Aquí se llamaría a onAdd?.invoke(id, name, apellidos, telefono) según la acción
+    }
 }
